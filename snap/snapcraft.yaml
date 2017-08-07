@@ -1,0 +1,35 @@
+name: minimal-snip # you probably want to 'snapcraft register <name>'
+version: '1.0' # just for humans, typically '1.2+git' or '1.3.2'
+summary: An easy-to-use minimal looking snipping tool # 79 char long summary
+description: |
+  This package provides a command-line tool called minimal-snip which is
+  a basic snipping tool. It offers a quick and hassle free way to capture
+  paricular areas of the user's screen as chosen by the user and displays
+  the resultant image in a compact and minimalistic format which always
+  stays on top. The resultant snip can be dragged around and hidden.
+
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+apps:
+  minimal-snip:
+      command: minimal-snip.wrapper
+
+parts:
+  minimal-snip:
+    source: .
+    # See 'snapcraft plugins'
+    plugin: python
+    python-version: python3
+    python-packages:
+      - pyscreenshot
+    stage-packages:
+      - python3-tk
+      - python3-pil.imagetk
+
+  glue:
+    plugin: dump
+    source: .
+    organize:
+      minimal-snip.wrapper: bin/minimal-snip.wrapper
