@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
 import os
@@ -177,6 +177,7 @@ class CaptureWin(tk.Toplevel):
         y1 = min(self.start_y, self.curY)
         y2 = max(self.start_y, self.curY)
         self.destroy()
+        time.sleep(0.5)
         im = ImageGrab.grab(bbox=(x1, y1, x2, y2))
         if self.win:
             self.win.deiconify()
@@ -261,10 +262,10 @@ class ShowWin(tk.Toplevel):
                                                  window=self.savelabel,
                                                  height=28,
                                                  width=self.x - 1)
-        self.pathtext = self.canvas.create_window(50, 5, anchor='nw',
+        self.pathtext = self.canvas.create_window(58, 5, anchor='nw',
                                                   window=self.entry,
                                                   height=20,
-                                                  width=x - 100)
+                                                  width=x - 108)
         self.savebutton = self.canvas.create_window(x - 45, 5, anchor='nw',
                                                     window=self.saveas,
                                                     height=20,
