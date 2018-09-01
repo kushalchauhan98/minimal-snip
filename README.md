@@ -1,6 +1,8 @@
 # minimal-snip
 A minimal snipping tool for linux.
 
+[![Snap Status](https://build.snapcraft.io/badge/kushalchauhan98/minimal-snip.svg)](https://build.snapcraft.io/user/kushalchauhan98/minimal-snip)
+
 To install this snap, clone this repository and simply run:
 
 ```
